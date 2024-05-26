@@ -1,0 +1,47 @@
+@import "../../vars.module";
+
+.advantages {
+  .block {
+    display: flex;
+    justify-content: space-between;
+    position: relative;
+
+    .text {
+      h1, h2, h3, h4, h5 {
+        margin-bottom: 11px;
+        display: block;
+      }
+
+      summary {
+        margin-bottom: 24px;
+      }
+    }
+
+    .number {
+      font-weight: 700;
+      font-size: 96px;
+      line-height: 81%;
+      text-align: right;
+      text-transform: uppercase;
+      color: rgba(13, 119, 234, 0.1);
+
+      @include small-media {
+        position: absolute;
+        right: 0;
+        bottom: 10px;
+      }
+    }
+  }
+
+  li {
+    &:not(:last-child) {
+      hr {
+        margin-bottom: 40px;
+      }
+    }
+  }
+
+  hr {
+    margin: 0;
+  }
+}

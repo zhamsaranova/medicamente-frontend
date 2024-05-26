@@ -1,0 +1,101 @@
+@import "../../vars.module";
+
+.container {
+  background: #ffffff;
+  box-shadow: 1px 1px 20px rgba(0, 0, 0, 0.04);
+  border-radius: 16px;
+  padding: 40px;
+
+  .formRow {
+    display: flex;
+    gap: 24px;
+    margin-bottom: 80px;
+  }
+
+  .disabled {
+    opacity: 0.5;
+    pointer-events: none;
+  }
+
+  .calendarBody {
+    display: flex;
+    flex-direction: column;
+    margin-bottom: 16px;
+
+    .annotationItem {
+      display: flex;
+      align-items: center;
+      gap: 8px;
+      font-size: 16px;
+    }
+
+    .dayBadge {
+      padding: 4px;
+      border-radius: 6px;
+      background-color: rgba(#626aed, 0.8);
+      padding: 0 12px;
+      display: block;
+      height: 22px;
+      border-radius: 4px;
+      color: white;
+      line-height: 22.4px;
+
+      &.selected {
+        background-color: $accent2;
+        color: white;
+        border: 1px solid black;
+      }
+    }
+  }
+
+  .available {
+    background-color: rgba(#626aed, 0.8);
+    color: white;
+
+    &:hover {
+      background-color: rgba(#626aed, 0.6) !important;
+    }
+  }
+
+  .selected {
+    background-color: $accent2;
+    color: white;
+    border: 1px solid black;
+
+    &:hover {
+      background-color: $accent2 !important;
+    }
+  }
+
+  .error {
+    color: $danger;
+    text-align: center;
+    width: 100%;
+    display: block;
+    margin-bottom: 20px;
+  }
+
+  .datePickerFooter {
+    display: flex;
+    gap: 32px;
+  }
+
+  .times {
+    display: flex;
+    gap: 18px;
+    flex-wrap: wrap;
+  }
+
+  .button {
+    margin: 0 auto;
+  }
+
+  @include small-media {
+    .formRow {
+      flex-wrap: wrap;
+    }
+    .datePickerFooter {
+      flex-direction: column;
+    }
+  }
+}

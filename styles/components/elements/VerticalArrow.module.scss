@@ -1,0 +1,14 @@
+@import "../../vars.module";
+@import "button";
+
+.arrow {
+  @extend .button;
+
+  svg {
+  transition: transform 400ms;
+
+  &.down {
+    transform: rotate(180deg);
+  }
+}
+}

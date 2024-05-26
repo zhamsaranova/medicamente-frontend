@@ -1,0 +1,19 @@
+.button {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  background: #FFFFFF;
+  border: 1px solid #D5D6D6;
+  width: 40px;
+  height: 40px;
+  border-radius: 100%;
+  cursor: pointer;
+
+  transition: background-color 400ms;
+  @include hover {
+    background: #f4f4f4;
+  }
+  &:active {
+    background: #D5D6D6;
+  }
+}

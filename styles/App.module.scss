@@ -1,0 +1,7 @@
+@import "vars.module";
+
+.main {
+  .content {
+    min-height: calc(100vh - $footer-height);
+  }
+}

@@ -1,0 +1,44 @@
+@import "../../vars.module";
+
+.inputs {
+  max-width: 850px;
+  width: 100%;
+  overflow: hidden;
+
+  .row {
+    display: flex;
+    gap: 24px;
+    align-items: center;
+    justify-content: center;
+    align-self: center;
+
+    @include medium-media {
+      flex-direction: column;
+
+      .button {
+        width: 100%;
+      }
+
+      margin-bottom: 20px;
+    }
+
+    .input {
+      flex: 1;
+    }
+  }
+}
+
+.underscore {
+  text-decoration: underline;
+}
+
+.message {
+  overflow: hidden;
+  * {
+    text-align: center;
+  }
+}
+
+.white {
+  color: $text-light-color !important;
+}

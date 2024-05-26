@@ -1,0 +1,94 @@
+@import "../../vars.module";
+
+.content {
+  overflow: hidden;
+
+  &.textBlock {
+    * {
+      font-size: 25px;
+      @include small-media {
+        font-size: 18px;
+      }
+    }
+
+    .h2 {
+      margin-top: 36px;
+      margin-bottom: 20px; //!important
+      &, * {
+        font-size: 40px;
+        @include small-media {
+          font-size: 20px;
+        }
+      }
+    }
+
+    .h1, .h2, .h3, .h4, .h5, .h6 {
+      text-align: center;
+      padding: 30px 0 15px;
+
+      @include small-media {
+        padding: 0;
+        margin: 0;
+        line-height: normal;
+      }
+    }
+  }
+
+  p {
+    margin: 18px 0;
+  }
+
+  li {
+    margin: 4px 0
+  }
+
+  a {
+    text-decoration-line: underline;
+  }
+
+  .right {
+    text-align: right;
+  }
+
+  ul {
+    list-style-type: disc;
+    padding: revert;
+
+    li {
+      display: list-item;
+      list-style-type: disc;
+    }
+  }
+
+  .image {
+    width: 100%;
+    display: flex;
+
+    @include small-media {
+      justify-content: center;
+    }
+
+    img {
+      margin: 20px auto;
+      border-radius: 60px;
+      width: 100%;
+      max-width: 500px;
+
+      @include small-media {
+        border-radius: 20px;
+      }
+    }
+  }
+
+  figure:global(.image) {
+    &:global(.image-style-side) {
+      float: left;
+      margin-right: 24px;
+
+      @include medium-media {
+        float: none;
+        margin-right: 0;
+      }
+    }
+  }
+}

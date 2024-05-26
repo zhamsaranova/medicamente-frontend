@@ -1,0 +1,45 @@
+@import "../../vars.module";
+
+.button {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  width: 48px;
+  height: 48px;
+  background: white;
+  border-radius: 100%;
+  border: none;
+  cursor: pointer;
+
+  transition: background-color 400ms;
+
+  path {
+    transition: stroke 400ms;
+    stroke: $accent;
+  }
+
+  @include hover {
+    background-color: darken($text-light-color-var, 5);
+  }
+
+  &:active {
+    background-color: darken($text-light-color-var, 10);
+  }
+
+  &:disabled {
+    path {
+      stroke: $text-secondary;
+    }
+  }
+
+  &.left {
+    transform: scaleX(-1);
+  }
+
+  &.reduced {
+    @include small-media {
+      height: 35px;
+      width: 35px;
+    }
+  }
+}

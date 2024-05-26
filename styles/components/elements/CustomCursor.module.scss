@@ -1,0 +1,55 @@
+@use "sass:selector";
+@import "../../vars.module";
+
+@mixin size($size) {
+  width: $size;
+  height: $size;
+  left: -$size / 2;
+  top: -$size / 2;
+}
+
+.cursor {
+  position: absolute;
+  pointer-events: none;
+
+  @media (hover: none) {
+    display: none;
+  }
+
+  * {
+    transition: all 400ms;
+  }
+
+  $cursor: &;
+
+  &.pointer {
+    color: black;
+  }
+
+  .outer {
+    position: absolute;
+
+    @include size(58px);
+
+    border-radius: 100%;
+    border: 1px solid $text-light-color;
+
+    @at-root #{$cursor}.pointer#{&} {
+      @include size(0px);
+      opacity: 0;
+    }
+  }
+
+  .inner {
+    position: absolute;
+
+    @include size(26px);
+
+    border-radius: 100%;
+    background: rgba(255, 255, 255, 0.6);
+
+    @at-root #{$cursor}.pointer#{&} {
+      @include size(16px);
+    }
+  }
+}

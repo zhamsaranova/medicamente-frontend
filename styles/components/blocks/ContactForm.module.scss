@@ -1,0 +1,78 @@
+@import "../../vars.module";
+
+@mixin hiddenImage {
+  @media (max-width: 850px) {
+    @content
+  }
+}
+
+.contactForm {
+  width: 100%;
+  display: flex;
+  justify-content: center;
+
+  .content {
+    width: 100%;
+    max-width: 1116px;
+    display: flex;
+    align-items: center;
+
+    @include hiddenImage {
+     flex-direction: column;
+    }
+
+    .image {
+      width: 225px;
+      z-index: 2;
+
+      img {
+        width: 270px;
+        height: auto;
+        z-index: 2;
+      }
+
+      @include hiddenImage {
+        width: auto;
+        height: 170px;
+
+        img {
+          height: 200px;
+          width: auto;
+        }
+      }
+    }
+
+    .form {
+      background: $accent;
+      padding: 40px;
+      border-radius: 16px;
+      height: calc(100% - 30px);
+      display: flex;
+      flex-direction: column;
+      justify-content: center;
+      align-items: center;
+
+      @include small-media {
+        padding-left: 10px;
+        padding-right: 10px;
+      }
+    }
+
+    header, summary {
+      text-align: center;
+      color: $text-light-color;
+    }
+
+    header {
+      font-weight: 700;
+      font-size: 24px;
+      margin-bottom: 16px;
+    }
+
+    summary {
+      font-weight: 400;
+      font-size: 16px;
+      margin-bottom: 24px;
+    }
+  }
+}

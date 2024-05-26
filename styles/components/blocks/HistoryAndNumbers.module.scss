@@ -1,0 +1,99 @@
+@import "../../vars.module";
+
+.history {
+    .header {
+        display: flex;
+        justify-content: center;
+        header {
+            font-weight: 400;
+            font-size: 32px;
+            line-height: 46px;
+            text-align: center;
+            text-transform: uppercase;
+            max-width: 950px;
+
+            @include medium-media {
+                font-size: 24px;
+                //text-align: center;
+                line-height: 26px;
+            }
+
+            @include small-media {
+                font-size: 18px;
+                //text-align: center;
+                line-height: 22px;
+            }
+        }
+        margin-bottom: 100px;
+    }
+
+    .grid {
+        display: flex;
+        & > * {
+            flex: 1;
+        }
+
+        @include medium-media {
+            flex-direction: column;
+            gap: 56px;
+        }
+
+        .numbers {
+            display: flex;
+            gap: 56px;
+            margin-right: 20px;
+
+            & > * {
+                max-width: 250px;
+            }
+
+            @include small-media {
+                flex-direction: column;
+            }
+
+            section {
+                @include small-media {
+                    width: 100%;
+                    max-width: unset;
+                    display: flex;
+                    flex-direction: column;
+                    align-items: center;
+                }
+            }
+
+            header {
+                font-weight: 600;
+                font-size: 24px;
+                line-height: 24px;
+                text-transform: uppercase;
+                color: $accent;
+
+                .number {
+                    font-size: 40px;
+                    line-height: 44px;
+                    color: $accent;
+                }
+
+                @include small-media {
+                    text-align: center;
+                }
+            }
+            summary {
+                font-weight: 400;
+                font-size: 16px;
+                line-height: 24px;
+                text-transform: uppercase;
+                color: #000000;
+
+                @include small-media {
+                    text-align: center;
+                    max-width: 300px;
+                }
+            }
+        }
+
+        .description {
+            max-width: 550px;
+        }
+    }
+}

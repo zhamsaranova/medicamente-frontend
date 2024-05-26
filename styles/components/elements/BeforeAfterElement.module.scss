@@ -1,0 +1,85 @@
+@import "../../vars.module";
+
+.card {
+  width: 100%;
+  background: #FFFFFF;
+  box-shadow: 1px 1px 20px rgba(0, 0, 0, 0.04);
+  border-radius: 16px;
+  padding: 24px;
+
+  display: flex;
+  gap: 40px;
+
+  @include medium-media {
+    flex-direction: column;
+  }
+
+  @include small-media {
+    padding: 10px;
+  }
+
+  .image {
+    border-radius: 16px;
+    overflow: hidden;
+    max-width: 450px;
+    //max-height: 280px;
+    width: 100%;
+    height: 100%;
+
+    .imageContainer {
+      position: relative;
+      height: 100%;
+      width: 100%;
+
+      img {
+        width: 100%;
+        height: auto;
+      }
+    }
+
+    :global(.before-after-slider) {
+      border-radius: 16px;
+      overflow: hidden;
+      height: 300px;
+
+      :global(.before-after-slider__first-photo-container), :global(.before-after-slider__second-photo-container) {
+        height: 100%;
+
+        img {
+          height: 100%;
+          object-fit: cover;
+        }
+      }
+    }
+  }
+
+  .article {
+    display: flex;
+    flex-direction: column;
+    flex-shrink: 2;
+
+    header {
+      font-weight: 700;
+      font-size: 16px;
+      line-height: 26px;
+      text-transform: uppercase;
+    }
+
+    p {
+      font-size: 16px;
+    }
+
+    footer {
+      margin-top: auto;
+    }
+
+    h1, h2, h3, h4, h5 {
+      margin-bottom: 0;
+      margin-top: 10px;
+    }
+
+    p:first-child {
+      margin-top: 8px;
+    }
+  }
+}

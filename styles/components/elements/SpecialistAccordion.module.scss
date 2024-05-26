@@ -1,0 +1,32 @@
+@import "../../vars.module";
+
+.content {
+  font-weight: 400;
+  text-transform: none;
+}
+
+.list {
+  .educationsList {
+    border-collapse:separate;
+    border-spacing: 0 16px;
+
+    .year {
+      color: $accent;
+      min-width: 100px;
+    }
+
+    .text {
+      @extend .content
+    }
+  }
+
+  .info {
+    display: flex;
+    flex-direction: column;
+    gap: 16px;
+
+    .item {
+      @extend .content
+    }
+  }
+}

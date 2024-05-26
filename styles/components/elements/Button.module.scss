@@ -1,0 +1,81 @@
+@import "../../vars.module";
+
+.button {
+  display: flex;
+  flex-direction: row;
+  justify-content: center;
+  align-items: center;
+  padding: 16px 32px;
+  margin-bottom: 10px;
+  gap: 10px;
+
+  width: fit-content;
+  height: 49px;
+
+  font-weight: 700;
+  font-size: 14px;
+  line-height: 17px;
+  text-align: center;
+  text-transform: uppercase;
+  color: $text-light-color;
+
+  border: none;
+  outline: none;
+  background: $accent;
+  border-radius: 8px;
+
+  transition: background-color 400ms;
+
+  cursor: pointer;
+
+  @include contrastTheme {
+    background: $text-light-color;
+    color: $text-color;
+    border: 2px solid $text-color;
+
+    @include hover {
+      background-color: #e3e3e3;
+    }
+
+    &:focus {
+      background-color: #e3e3e3;
+    }
+
+    &:active {
+      background-color: #e3e3e3;
+    }
+  }
+
+  &.white {
+    background-color: $text-light-color;
+    color: $accent;
+
+    @include hover {
+      background-color: darken($text-light-color-var, 5);
+    }
+
+    &:focus {
+      background-color: darken($text-light-color-var, 5);
+    }
+
+    &:active {
+      background-color: darken($text-light-color-var, 15);
+    }
+  }
+
+  @include hover {
+    background-color: $accent2;
+  }
+
+  &:focus {
+    background-color: $accent2;
+  }
+
+  &:active {
+    background-color: darken($accent2-var, 10);
+  }
+
+  &.disabled {
+    background-color: $inactive;
+  }
+}

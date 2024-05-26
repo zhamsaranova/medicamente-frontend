@@ -1,0 +1,30 @@
+@import "../../vars.module";
+
+.breadcrumbs {
+  padding-bottom: 16px;
+
+  .content {
+    @include small-media {
+      margin-left: auto;
+      margin-right: auto;
+      width: fit-content;
+      text-align: center;
+    }
+
+    .part {
+      font-weight: 500;
+      font-size: 14px;
+      line-height: 17px;
+      text-transform: uppercase;
+      color: $text-secondary;
+
+      &.active {
+        color: $text-color;
+      }
+
+      @include small-media {
+        text-align: center;
+      }
+    }
+  }
+}

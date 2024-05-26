@@ -1,0 +1,123 @@
+@import "../../vars.module";
+
+.container {
+  $c: &;
+
+  width: 100%;
+  position: relative;
+  border-bottom: 1px solid $text-secondary;
+  display: flex;
+  align-items: center;
+  padding: 8px;
+  margin-bottom: 10px;
+  background: none;
+
+  transition: border-bottom-color 400ms;
+
+  * {
+    font-style: normal;
+    font-weight: 400;
+    font-size: 16px;
+    line-height: 19px;
+    text-transform: uppercase;
+    color: $text-secondary;
+    transition: color 400ms;
+    background: none;
+  }
+
+  &.white {
+    *, input {
+      color: $text-light-color;
+    }
+
+    &.focus {
+      * {
+        color: $text-light-color;
+      }
+
+      border-color: $text-light-color;
+    }
+
+    input {
+      &::placeholder {
+        color: $text-light-color;
+      }
+
+      &:-webkit-autofill {
+        box-shadow: inset 0 0 0 1px $accent, inset 0 0 0 100px $accent;
+        color: $text-light-color !important;
+        -webkit-text-fill-color: $text-light-color !important;
+      }
+    }
+
+    border-color: $text-light-color;
+  }
+
+  &.focus {
+    border-bottom-color: $accent;
+
+    input {
+      color: $accent;
+    }
+
+    label {
+      color: $text-color;
+    }
+
+    svg path {
+      stroke: $accent;
+    }
+  }
+
+  &.filled {
+    * {
+      color: $text-color;
+    }
+
+    svg path {
+      stroke: $accent;
+    }
+  }
+
+  &.error {
+    border-bottom-color: $danger;
+    input, svg path, label {
+      color: $danger;
+    }
+
+    input::placeholder {
+      color: $danger;
+    }
+  }
+
+  input {
+    width: 100%;
+    outline: none;
+    border: none;
+    padding-left: 4px;
+    &::placeholder {
+      transition: color 400ms;
+    }
+  }
+
+  label {
+  }
+
+  .search {
+    border: none;
+
+    @include hover {
+      svg {
+        path {
+          stroke: lighten($accent-var, 30);
+        }
+      }
+    }
+
+    svg {
+      path {
+        transition: stroke 400ms;
+      }
+    }
+  }
+}

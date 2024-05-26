@@ -1,0 +1,63 @@
+@import "../../vars.module";
+
+.contacts {
+  .list {
+    display: flex;
+    max-width: 1170px;
+    justify-content: space-between;
+    flex-wrap: wrap;
+    gap: 40px;
+
+    .item {
+      display: flex;
+      flex-direction: column;
+      gap: 8px;
+
+      header {
+        font-weight: 500;
+        font-size: 14px;
+        line-height: 21px;
+        text-transform: uppercase;
+        color: $text-secondary;
+      }
+
+      summary {
+        font-weight: 500;
+        font-size: 16px;
+        line-height: 24px;
+        text-transform: uppercase;
+        display: flex;
+        align-content: center;
+        gap: 8px;
+        justify-content: space-between;
+
+        &.address {
+          font-weight: 500;
+          font-size: 24px;
+          line-height: 36px;
+          text-transform: uppercase;
+          color: $accent;
+
+          max-width: 470px;
+        }
+
+        .highlight {
+          font-weight: 500;
+          font-size: 14px;
+        }
+      }
+    }
+  }
+}
+
+.map {
+  iframe {
+    width: 100%;
+    height: 450px;
+    border: none;
+  }
+}
+
+.page_description{
+  margin: -20px 0 0;
+}

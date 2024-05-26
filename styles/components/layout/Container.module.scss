@@ -1,0 +1,44 @@
+@import "../../vars.module";
+
+.container {
+  padding: 60px 48px;
+  margin-left: auto;
+  margin-right: auto;
+
+  .content {
+    max-width: 1700px;
+    margin-left: auto;
+    margin-right: auto;
+  }
+
+  &.text {
+    .content {
+      max-width: 1100px;
+    }
+  }
+
+  :global(.noPaddingAfter) + & {
+    padding-top: 0;
+  }
+
+  &.noPadding {
+      padding-left: 0;
+      padding-right: 0;
+  }
+
+  &.noTopPadding {
+     padding-top: 0;
+  }
+
+  &:first-child:not(.nav) {
+    padding-top: 100px;
+
+    @include small-media {
+      padding-top: 90px;
+    }
+  }
+
+  @include small-media {
+    padding: 30px 10px;
+  }
+}

@@ -1,0 +1,22 @@
+@import "../../vars.module";
+@import "button";
+
+.arrow {
+  @extend .button;
+
+  svg {
+    transition: transform 400ms;
+
+    path {
+      transition: stroke 400ms;
+    }
+
+    &.remove {
+      transform: rotate(-45deg);
+
+      path {
+        stroke: $danger;
+      }
+    }
+  }
+}

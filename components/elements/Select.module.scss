@@ -1,0 +1,60 @@
+@import "../../styles/vars.module";
+
+.container {
+  position: relative;
+
+  .active {
+    border-bottom: 1px solid #acadad;
+    padding: 4px;
+    min-width: 300px;
+    display: flex;
+    justify-content: space-between;
+    cursor: pointer;
+  }
+
+  .body {
+    position: absolute;
+    top: 110%;
+    left: 0;
+    display: none;
+    background-color: white;
+    box-shadow: 0 0 30px 0 rgba(0, 0, 0, 0.1);
+    flex-direction: column;
+    padding: 10px 0;
+    width: 100%;
+    border-radius: 10px;
+
+    .option {
+      cursor: pointer;
+      width: 100%;
+      padding: 8px;
+
+      @include hover {
+        &:hover {
+          background-color: rgba(0, 0, 0, 0.1);
+        }
+      }
+
+      &.selected {
+        color: $accent;
+      }
+    }
+  }
+
+  &.open {
+    z-index: 10;
+
+    .active {
+      border-bottom-color: $accent;
+
+      svg {
+        transform: rotate(180deg);
+      }
+    }
+
+    .body {
+      border: 1px solid $accentBg;
+      display: flex;
+    }
+  }
+}

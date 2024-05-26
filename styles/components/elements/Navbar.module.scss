@@ -1,0 +1,204 @@
+@import "../../vars.module";
+
+@mixin mobile {
+  @media (max-width: 1100px) {
+    @content;
+  }
+}
+
+.navbar {
+  position: fixed;
+  top: 0;
+  left: 0;
+  right: 0;
+  padding-top: 16px !important;
+  padding-bottom: 16px !important;
+  height: 82px;
+  z-index: 99;
+  background: rgba(249, 250, 255, 0.9);
+  backdrop-filter: blur(4px);
+
+  @include contrastTheme {
+    top: 100px;
+  }
+
+  .logo {
+    cursor: pointer;
+  }
+
+  .content {
+
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+
+    .links {
+      display: flex;
+      align-items: center;
+      gap: 40px;
+
+      @include mobile {
+        display: none;
+      }
+
+      a {
+        font-weight: 600;
+        font-size: 14px;
+        line-height: 17px;
+        text-transform: uppercase;
+
+        position: relative;
+
+        .active {
+          position: absolute;
+          bottom: -8px;
+          width: 100%;
+          display: flex;
+          justify-content: center;
+
+          &::after {
+            content: '';
+            width: 20px;
+            height: 3px;
+            background: $accent;
+            border-radius: 40px;
+          }
+        }
+      }
+    }
+
+    .contact {
+      display: flex;
+      align-items: center;
+      gap: 12px;
+
+      @include mobile {
+        display: none;
+      }
+
+      .phone {
+        @media (max-width: 1300px) {
+          display: none;
+        }
+      }
+
+      .button {
+        margin-bottom: 0;
+      }
+    }
+
+    .toggle {
+      display: none;
+
+      @include mobile {
+        display: flex;
+        align-content: center;
+        justify-content: center;
+        gap: 20px;
+      }
+
+      & > button {
+        background: none;
+        border: none;
+        display: flex;
+        align-items: center;
+      }
+    }
+
+    .mobileMenu {
+      display: none;
+
+      @include mobile {
+        position: absolute;
+        background: rgba(249, 250, 255, 0.9);
+        backdrop-filter: blur(4px);
+        top: 100%;
+        left: 0;
+        right: 0;
+        height: calc(100vh - 100%);
+
+        display: flex;
+        justify-content: center;
+        align-items: center;
+        flex-direction: column;
+        gap: 20px;
+
+        z-index: 999;
+
+        overflow: scroll;
+
+        .link {
+          font-size: 24px;
+          text-transform: uppercase;
+        }
+      }
+    }
+
+    .searchMenu {
+      position: absolute;
+      background: rgba(249, 250, 255, 0.9);
+      backdrop-filter: blur(4px);
+      top: 100%;
+      left: 0;
+      right: 0;
+      height: 80px;
+
+      display: flex;
+      justify-content: center;
+      align-items: center;
+      flex-direction: column;
+
+      ul {
+        display: flex;
+        flex-direction: column;
+        gap: 20px;
+        padding-bottom: 10px;
+        justify-items: flex-start;
+
+        span {
+          text-transform: uppercase;
+        }
+      }
+
+      overflow: hidden;
+
+      padding-left: 48px;
+      padding-right: 48px;
+
+      z-index: 999;
+
+      @include small-media {
+        padding-left: 10px;
+        padding-right: 10px;
+      }
+
+      form {
+        width: 100%;
+        max-width: 660px;
+        display: flex;
+        justify-content: center;
+        flex-direction: column;
+      }
+
+      .input {
+        width: 100%;
+      }
+    }
+  }
+
+  .search {
+    cursor: pointer;
+  }
+}
+
+.search__link{
+  display: flex; flex-direction: row; gap: 0;
+  align-items: center;
+  .search__icon_container{
+    height: 20px; width: 20px;
+    position: relative;
+    margin-right: 7px;
+    //margin-bottom: -3px;
+    display: inline-block;
+  }
+}

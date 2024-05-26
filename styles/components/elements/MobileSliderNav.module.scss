@@ -1,0 +1,21 @@
+@import "../../vars.module";
+
+.nav {
+  .left, .right {
+    position: absolute;
+    top: 100px;
+    z-index: 2;
+
+    @media (min-width: $small) {
+      display: none;
+    }
+  }
+
+  .left {
+    left: 10px;
+  }
+
+  .right {
+    right: 10px;
+  }
+}

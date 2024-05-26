@@ -1,0 +1,32 @@
+@import "../../vars.module";
+
+.specialists {
+  overflow: hidden;
+
+  .list {
+    position: relative;
+    display: grid;
+
+    &.one {
+      & > li {
+        grid-template-columns: 1fr;
+      }
+    }
+
+    & > li {
+      grid-area: 1 / 1 / 2 / 2;
+      display: grid;
+      grid-template-columns: repeat(4, 1fr);
+      gap: 24px;
+
+      @include medium-media {
+        grid-template-columns: repeat(2, auto);
+      }
+
+      @include small-media {
+        grid-template-columns: auto;
+        gap: 60px;
+      }
+    }
+  }
+}

@@ -1,0 +1,19 @@
+@import "../../vars.module";
+
+.beforeAfter {
+  overflow: hidden;
+  .list {
+    display: grid;
+    gap: 40px;
+    & > li {
+      grid-area: 1 / 1 / 2 / 2;
+      display: flex;
+      flex-direction: column;
+      gap: 24px;
+    }
+  }
+}
+
+.page_description{
+  margin: 0 0 28px;
+}

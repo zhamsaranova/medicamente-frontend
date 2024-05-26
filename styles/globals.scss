@@ -1,0 +1,73 @@
+@import "vars.module";
+
+html,
+body {
+  padding: 0;
+  margin: 0;
+  font-family: Lato, -apple-system, BlinkMacSystemFont, Segoe UI, Roboto, Oxygen,
+    Ubuntu, Cantarell, Fira Sans, Droid Sans, Helvetica Neue, sans-serif;
+  background-color: #f9faff;
+
+  --accent: #{$accent-var};
+  --accent2: #{$accent2-var};
+  --accentBg: #{$accentBg-var};
+  --inactive: #{$inactive-var};
+  --text-color: #{$text-color-var};
+  --text-secondary: #{$text-secondary-var};
+  --text-light-color: #{$text-light-color-var};
+  --danger: #{$danger-var};
+
+  &.contrastTheme {
+    //--accent: #{darken($accent-var, 20)};
+    //--accent2: #{$accent2-var};
+    --accent: #2c2c2c;
+    --accent2: #272727;
+    --inactive: #{$inactive-var};
+    --text-color: black;
+    --text-secondary: black;
+    --text-light-color: white;
+    --danger: #{$danger-var};
+  }
+}
+
+a {
+  color: inherit;
+  text-decoration: none;
+}
+
+* {
+  box-sizing: border-box;
+  color: $text-color;
+}
+
+ul,
+ul li,
+ul ul li {
+  display: block;
+  margin: 0;
+  padding: 0;
+  text-indent: 0;
+  list-style-type: none;
+}
+
+figure {
+  margin: 0;
+}
+
+.c-scrollbar {
+  z-index: 999;
+}
+
+.rdp-months {
+}
+
+@include small-media {
+  .rdp-months {
+    flex-wrap: wrap;
+    gap: 20px;
+
+    .rdp-month {
+      margin: 0;
+    }
+  }
+}

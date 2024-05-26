@@ -1,0 +1,44 @@
+@import "../../../styles/vars.module";
+
+.container {
+  max-width: 600px;
+  text-align: center;
+
+  .secondary {
+    text-transform: none;
+    margin-bottom: 24px;
+  }
+
+  .body {
+    text-align: unset;
+    background-color: rgba(98, 106, 237, 0.05);
+    width: 100%;
+    max-width: 450px;
+    margin: 0 auto 24px;
+    padding: 24px;
+    display: flex;
+    flex-direction: column;
+    gap: 16px;
+    border-radius: 12px;
+
+    .row {
+      display: flex;
+      justify-content: space-between;
+      gap: 40px;
+    }
+  }
+
+  .button {
+    margin: 0 auto;
+  }
+
+  @include small-media {
+    .body {
+      .row {
+        gap: 5px;
+        align-items: flex-start;
+        flex-direction: column;
+      }
+    }
+  }
+}

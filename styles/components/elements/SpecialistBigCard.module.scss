@@ -1,0 +1,133 @@
+@import "../../vars.module";
+
+.card {
+  background: #FFFFFF;
+  box-shadow: 1px 1px 20px rgba(0, 0, 0, 0.04);
+  border-radius: 16px;
+
+  display: flex;
+  align-items: stretch;
+
+  position: relative;
+
+  @include medium-media {
+    flex-direction: column;
+  }
+
+  .backgroundImage {
+    position: absolute;
+    top: 30px;
+    left: 30px;
+    //transform: translateX(50%);
+
+    @include small-media {
+      top: 10px;
+      left: 10px;
+    }
+
+    img {
+      width: 80px;
+      height: auto;
+    }
+  }
+
+  .photo {
+    position: relative;
+    width: calc(100% - 24px * 2);
+    max-width: 546px;
+    min-height: 492px;
+    margin-left: 24px;
+    margin-right: 24px;
+
+    @include small-media {
+      min-height: 300px;
+    }
+  }
+
+  .description {
+    padding: 40px 24px;
+    display: flex;
+    flex-direction: column;
+
+    .header {
+      margin-bottom: 16px;
+
+      @include small-media {
+        font-size: 20px;
+        line-height: unset;
+      }
+    }
+
+    .tags {
+      display: flex;
+      gap: 10px;
+      margin-bottom: 36px;
+
+      @include small-media {
+        justify-content: center;
+      }
+
+      .tag {
+        border: 1px solid $accent;
+        border-radius: 8px;
+        padding: 6px 16px 6px 6px;
+        display: flex;
+        align-items: center;
+        //gap: 8px;
+        width: fit-content;
+
+        span {
+          font-weight: 600;
+          font-size: 14px;
+          line-height: 17px;
+          text-transform: uppercase;
+          color: $text-color;
+        }
+
+        &::before {
+          content: ' ';
+          width: 6px;
+          height: 6px;
+          background: $accent;
+          border-radius: 100%;
+          margin-left: 8px;
+          margin-right: 8px;
+        }
+      }
+    }
+
+    .info {
+      margin-bottom: 24px;
+
+      header {
+        font-weight: 600;
+        font-size: 14px;
+        line-height: 160%;
+        text-transform: uppercase;
+
+        color: $text-secondary;
+      }
+
+      summary {
+        font-weight: 500;
+        font-size: 16px;
+        line-height: 160%;
+        text-transform: uppercase;
+      }
+    }
+
+    .footer {
+      margin-top: auto;
+
+      @include small-media {
+        width: 100%;
+        display: flex;
+        justify-content: center;
+      }
+    }
+
+    .button {
+      margin-bottom: 0;
+    }
+  }
+}

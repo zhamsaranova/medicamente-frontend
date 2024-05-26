@@ -1,0 +1,26 @@
+.controls {
+  position: fixed;
+  top: 0;
+  left: 0;
+  right: 0;
+  background: rgba(249, 250, 255, 0.9);
+  backdrop-filter: blur(4px);
+  z-index: 99;
+  padding-top: 16px;
+  padding-bottom: 16px;
+  height: 100px;
+
+  .content {
+    display: flex;
+    align-items: center;
+    gap: 20px;
+
+    p {
+      font-size: 22px !important;
+    }
+
+    button {
+      font-size: 30px;
+    }
+  }
+}

@@ -1,0 +1,62 @@
+$accent-var: #626aed;
+$accent2-var: #4750e1;
+$accentBg-var: #8F94F0;
+$inactive-var: #C6C6C6;
+$text-color-var: #3C3C3C;
+$text-secondary-var: #ACADAD;
+$text-light-color-var: #F9FAFF;
+$danger-var: #FF4E4E;
+
+$accent: var(--accent);
+$accent2: var(--accent2);
+$accentBg: var(--accentBg);
+$inactive: var(--inactive);
+$text-color: var(--text-color);
+$text-secondary: var(--text-secondary);
+$text-light-color: var(--text-light-color);
+$danger: var(--danger);
+
+$text-accent: $accent;
+
+$medium: 1024px;
+$small: 500px;
+
+$footer-height: 238px;
+
+@mixin medium-media {
+  @media only screen and (max-width: $medium) {
+    @content;
+  }
+}
+@mixin small-media {
+  @media only screen and (max-width: $small) {
+    @content;
+  }
+}
+
+@mixin hover {
+  @media(hover: hover) and (pointer: fine) {
+    &:hover {
+      @content;
+    }
+  }
+}
+
+@mixin contrastTheme {
+  $selector: &;
+
+  @at-root :global(.contrastTheme) #{$selector} {
+    @content
+  }
+}
+
+:export {
+  medium: $medium;
+  small: $small;
+}
+
+.noCursor {
+  &, * {
+    cursor: none !important;
+  }
+}
