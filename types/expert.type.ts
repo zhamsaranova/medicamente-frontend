@@ -18,8 +18,19 @@ export interface IExpert {
 
   services: IService[];
   recordDates: Date[];
+  appointments: IAppointment[];
 }
 
 export interface IOverridedExpert extends Omit<IExpert, "id" | "services"> {
   services: string[];
+}
+
+export interface IAppointment {
+  id: number;
+  confirmed: boolean;
+  birthDate: string;
+  date: string;
+  email: string;
+  fullname: string;
+  phone: string;
 }

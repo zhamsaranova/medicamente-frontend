@@ -118,7 +118,7 @@ function Navbar() {
         </>
       </div>
       <div className={styles.contact}>
-        <Contact className={styles.phone}>+7(861)206-91-07</Contact>
+        <Contact className={styles.phone}>+7 (861) 206-91-07</Contact>
 
         <Button as="link" href="/appointment" className={styles.button}>
           Онлайн-запись

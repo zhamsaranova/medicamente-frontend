@@ -15,6 +15,7 @@ import Input from "../elements/Input";
 import ModalSuccessAppointment from "../elements/ModalSuccessAppointment";
 import Select, { TOption } from "../elements/Select";
 import TimeLabel from "../elements/TimeLabel";
+import SelectTimeBlock from "./SelectTimeBlock";
 
 export type TCreateAppointment = {
   fullname: string;
@@ -47,6 +48,12 @@ const AppointmentForm = ({
     useState<TOption | null>(null);
   const [selectedTime, setSelectedTime] = useState<string | null>(null);
   const [recordTimes, setRecordTimes] = useState<TRecordTime[]>([]);
+
+  const [alreadySelectedTimes, setAlreadySelectedTimes] = useState<string[]>(
+    [],
+  );
+
+  const [isCorrectDate, setIsCorrectDate] = useState(false);
 
   const [activeSpecialization, setActiveSpecialization] =
     useState<TSpecialization | null>(null);
@@ -144,16 +151,43 @@ const AppointmentForm = ({
       } catch (e) {
         console.log(e);
         if (axios.isAxiosError(e)) {
-          setError(e.response?.data.error.message);
+          setError(e.response?.data.message);
         } else {
-          // e.message
+          setError('Произошла ошибка')
         }
       }
     }
   };
 
   useEffect(() => {
-    console.log(selected);
+    if (selected) {
+      if (
+        activeExpert?.recordDates.some(
+          (item) => new Date(item).getTime() === new Date(selected).getTime(),
+        )
+      ) {
+        setIsCorrectDate(true);
+
+        const filteredDates = activeExpert.appointments.filter(
+          (item) =>
+            new Date(new Date(item.date).setHours(0, 0)).getTime() ===
+            new Date(new Date(selected).setHours(0, 0)).getTime(),
+        );
+
+        setAlreadySelectedTimes(
+          filteredDates.map(
+            (item) =>
+              `${("0" + new Date(item.date).getHours()).slice(-2)}:${(
+                "0" + new Date(item.date).getMinutes()
+              ).slice(-2)}`,
+          ),
+        );
+      } else {
+        setAlreadySelectedTimes([]);
+        setIsCorrectDate(false);
+        setSelectedTime(null);
+      }
+    }
   }, [selected]);
 
   return (
@@ -285,18 +319,13 @@ const AppointmentForm = ({
           </div>
         </div>
 
-        <Header l="h4">Выберите время записи</Header>
-        <div className={styles.formRow}>
-          <ul className={`${styles.times} ${!selected ? styles.disabled : ""}`}>
-            {recordTimes.map((item) => (
-              <li onClick={() => setSelectedTime(item.time)} key={item.id}>
-                <TimeLabel active={selectedTime === item.time}>
-                  {item.time}
-                </TimeLabel>
-              </li>
-            ))}
-          </ul>
-        </div>
+        <SelectTimeBlock
+          disabled={!isCorrectDate}
+          times={recordTimes}
+          takenTimes={alreadySelectedTimes}
+          selectTime={(time) => setSelectedTime(time)}
+          selectedTime={selectedTime}
+        />
 
         {error && <small className={styles.error}>{error}</small>}
         <Button className={styles.button}>Записаться на приём</Button>

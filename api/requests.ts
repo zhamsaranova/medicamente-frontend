@@ -12,7 +12,7 @@ export const ExpertsService = {
       const { data } = await axiosInstance.get<IExpert[]>("/expert");
       return data;
     } catch (e) {
-      console.log(e);
+      throw e
     }
   },
   async getOneBySlug(slug: string) {

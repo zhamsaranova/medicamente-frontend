@@ -31,7 +31,7 @@ const banners = [
   {
     name: "Стоматологические услуги на высшем уровне",
     description: "Рассчитаем план вашего лечения и проведём диагностику",
-    image: "/banner1.webp",
+    image: "/banner1.jpg",
     link: "/appointment",
     buttonText: "Записаться на консультацию",
   },
